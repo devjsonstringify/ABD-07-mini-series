@@ -1,33 +1,48 @@
 // Online C++ compiler to run C++ program online
 #include <iostream>
 
-int celsiusToFahrenheit(int value){
+int celsiusToFahrenheit(int value) {
     int result;
-    result = (value * 9/5) + 32;
+    result = (value * 9 / 5) + 32;
     return result;
 }
 
-int fahrenheitToCelsius(int value){
-    int result;
-    result = (value - 32) * 5/9;
+int fahrenheitToCelsius(int value) {
+    float result;
+    result = (value - 32) * 5 / 9;
     return result;
 }
 
 int main() {
     int temperature;
-    char getUserUnit = 'f';
+    char getUserUnit;
+    bool isLoopEnd = true;
+    std::string getTemperatureQuestion = "What's the temperature?:";
+    std::string getUserUnitInputQuestion = "What's the unit? [f/c]: ";
 
-   std::cout << "Unit conversion celsius to fahrenheit vice-versa \n";
-   std::cout << "What's the unit? [f/c]: ";
-   std::cin >> getUserUnit;
-   std::cout << "What's the temperature?: ";
-   std::cin >> temperature;
-    
-    if(getUserUnit == 'c'){
-         std::cout << "Conversation: Celsius to Fahrenheit: " << fahrenheitToCelsius (temperature) << std::endl;
-         return 0;
+    std::cout << "Unit conversion celsius to fahrenheit vice-versa \n";
+
+    while (isLoopEnd) {
+        std::cout << getUserUnitInputQuestion;
+        std::cin >> getUserUnit;
+
+        if (getUserUnit == 'c') {
+            std::cout << getTemperatureQuestion;
+            std::cin >> temperature;
+             std::cout << "Conversation: Celsius to Fahrenheit is: " << celsiusToFahrenheit(temperature) << std::endl;
+            isLoopEnd = false;
+        }
+        else if (getUserUnit == 'f') {
+            std::cout << getTemperatureQuestion;
+            std::cin >> temperature;
+             std::cout << "Conversion: Fahrenheit to Celsius is: " << fahrenheitToCelsius(temperature) << std::endl;
+            isLoopEnd = false;
+        }
+        else {
+            isLoopEnd = true;
+            getUserUnitInputQuestion = "Please enter [f/y] only: ";
+        }
     }
-    std::cout << "Conversion: Fahrenheit to Celsius: " << celsiusToFahrenheit(temperature) << std::endl;
-    
+
     return 0;
 }
