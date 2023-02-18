@@ -1,3 +1,4 @@
+from colorama import Fore
 
 print('Bonjour, please enter the following information')
 student_name = str(input('Name: '))
@@ -33,6 +34,8 @@ average = int(total_scores / subject_length)
 min_passing_score = 50
 
 if(average <= min_passing_score):
+	print(Fore.RED)
 	notification(name=student_name,  score=average, status="fail")
 else:
+	print(Fore.GREEN)
 	notification(name=student_name, score=average)
