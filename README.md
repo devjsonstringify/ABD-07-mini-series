@@ -2,7 +2,7 @@
 
 C++ programming language
  - basic-input.cpp
- - air-traffic-controlle
+ - air-traffic-controller
 
 Python programming language
  - calculate-total-percentage.py
