@@ -11,5 +11,6 @@ Python programming language
  - air-traffic-controller.py
 
  Java programming language
- - GetUserInputs
- - GetUserInputAndReturn
+ - GetUserInputs.java
+ - GetUserInputAndReturn.java
+ - LoopInJava.java
