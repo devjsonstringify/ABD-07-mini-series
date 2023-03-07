@@ -9,6 +9,7 @@ Python programming language
  - basic-input-program.py
  - land-traffic-controller.py
  - air-traffic-controller.py
+ - shipping-cost.py
 
  Java programming language
  - GetUserInputs.java
