@@ -1,44 +1,45 @@
-unitsDictionary = {
+UNITS = {
 	"grams": "g",
 	"kilogram": "kg",
 }
 
-penDictionary = {
+penDict = {
 	"weight": 17,
 	"cost": 3,
 	"penPerPack": 12,
 	"weightOfPenPerPack": 0,
-	"unit": unitsDictionary["grams"]
+	"unit": UNITS["grams"]
 }
 
-boxDictionary = {
+boxDict = {
 	"weight": 20,
 	"weightPerPack": 0,
-	"unit": unitsDictionary["kilogram"],
+	"unit": UNITS["kilogram"],
 	"boxes_count": 500,
 	"boxes_cost": 0,
 	"cost_of_pen_of_packs": 0,
 }
 
-shippingDictionary = {
+shippingDic = {
 	"costPerKg": 0.50,
 	"totalCost": 0
 }
-calculate_weight_of_pen_per_pack = penDictionary["weight"] * penDictionary["penPerPack"]
-penDictionary['weightOfPenPerPack'] = calculate_weight_of_pen_per_pack
+calc_weight_of_pen_per_pack = penDict["weight"] * penDict["penPerPack"]
+penDict['weightOfPenPerPack'] = calc_weight_of_pen_per_pack
 
-calculate_number_of_pen_on_box = 98
-boxDictionary["weightPerPack"] = calculate_number_of_pen_on_box
+formatted_number = "0."+str(penDict["weightOfPenPerPack"])
+calc_weight_per_pack = int(boxDict["weight"] / float(formatted_number))
+boxDict["weightPerPack"] = calc_weight_per_pack
 
-calculate_boxes_count = boxDictionary["boxes_count"] / calculate_number_of_pen_on_box
-boxDictionary["boxes_cost"] = calculate_boxes_count
+calc_boxes_count = boxDict["boxes_count"] / calc_weight_per_pack
+boxDict["boxes_cost"] = calc_boxes_count
 
-calculate_pen_in_a_pack = boxDictionary["boxes_count"] * penDictionary["cost"]
-boxDictionary["cost_of_pen_of_packs"] = calculate_pen_in_a_pack
+calc_cost_of_pen_of_packs = boxDict["boxes_count"] * penDict["cost"]
+boxDict["cost_of_pen_of_packs"] = calc_cost_of_pen_of_packs
 
-calculate_shipping_total_cost = 1000 * shippingDictionary["costPerKg"]
-shippingDictionary["totalCost"] = calculate_shipping_total_cost
+calc_total_cost = 1000 * shippingDic["costPerKg"]
+shippingDic["totalCost"] = calc_total_cost
 
-total_shipping_cost_of_one_ton = boxDictionary["cost_of_pen_of_packs"] + boxDictionary["boxes_count"]
+shipping_overall_cost = boxDict["cost_of_pen_of_packs"] + boxDict["boxes_count"]
 
-print(f'The cost of 1 ton of pens ${total_shipping_cost_of_one_ton}')
+print(f'The cost of 1 ton of pens ${shipping_overall_cost}')
