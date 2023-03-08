@@ -20,3 +20,5 @@ Final - March 6, 2023
 - final-march-six.cpp
 - final-march-six.py
 - final-march-six.java
+
+- Mathematics Applied to Computer Science
